@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './JsonUploader.css';
 
 const JsonUploader = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -27,7 +28,7 @@ const JsonUploader = () => {
         }
     };
     return (
-        <div>
+        <div className="json-container">
             <input type="file" onChange={handleFileChange} />
             <button onClick={handleUpload}>Prześlij plik</button>
         </div>
