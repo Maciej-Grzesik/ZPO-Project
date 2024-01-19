@@ -1,5 +1,41 @@
 .json-container {
+    width: 300px;
+    height: 150px;
+    background-color: #aaaaaa;
+    border-radius: 10px;
+    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+.json-container button {
+    position: relative;
+    padding: 1rem 6rem 1rem 6rem;
+    margin-top: 0.7rem;
+    
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.json-container button:hover {
+    background-color: #45a049;
+    scale: 1.05;
+}
+
+input {
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
 }

@@ -1,8 +1,14 @@
 package org.example.patientmanagement.model;
 
 public enum MaritalStatus {
-    SINGLE,
-    MARRIED,
-    DIVORCED,
-    WIDOWED
+    SINGLE("Single"),
+    MARRIED("Married"),
+    DIVORCED("Divorced"),
+    WIDOWED("Widowed");
+
+    private final String displayName;
+
+    MaritalStatus(String displayName) { this.displayName = displayName; }
+
+    public String getDisplayName() { return displayName; }
 }
