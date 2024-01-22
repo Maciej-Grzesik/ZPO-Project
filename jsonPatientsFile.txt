@@ -1,0 +1,96 @@
+[
+  {
+    "type": "adult",
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 35,
+    "gender": "MALE",
+    "insurances": ["MANDATORY", "VOLUNTARY"],
+    "occupation": "Software Developer",
+    "maritalStatus": "MARRIED",
+    "spouseName": "Jane"
+  },
+  {
+    "type": "adult",
+    "firstName": "Alice",
+    "lastName": "Smith",
+    "age": 42,
+    "gender": "FEMALE",
+    "insurances": ["SICKNESS", "ACCIDENT"],
+    "occupation": "Doctor",
+    "maritalStatus": "MARRIED",
+    "spouseName": "Bob"
+  },
+  {
+    "type": "adult",
+    "firstName": "Chris",
+    "lastName": "Johnson",
+    "age": 28,
+    "gender": "MALE",
+    "insurances": ["MANDATORY"],
+    "occupation": "Teacher",
+    "maritalStatus": "SINGLE"
+  },
+  {
+    "type": "child",
+    "firstName": "Emma",
+    "lastName": "Johnson",
+    "age": 8,
+    "gender": "FEMALE",
+    "insurances": ["SICKNESS", "ACCIDENT"],
+    "schoolGrade": "2nd Grade",
+    "parentGuardian": "Alice Johnson"
+  },
+  {
+    "type": "child",
+    "firstName": "Daniel",
+    "lastName": "Miller",
+    "age": 10,
+    "gender": "MALE",
+    "insurances": ["ACCIDENT"],
+    "schoolGrade": "4th Grade",
+    "parentGuardian": "Jennifer Miller"
+  },
+  {
+    "type": "child",
+    "firstName": "Olivia",
+    "lastName": "Davis",
+    "age": 6,
+    "gender": "FEMALE",
+    "insurances": ["SICKNESS"],
+    "schoolGrade": "1st Grade",
+    "parentGuardian": "Michael Davis"
+  },
+  {
+    "type": "senior",
+    "firstName": "Elder",
+    "lastName": "Person",
+    "age": 70,
+    "gender": "MALE",
+    "insurances": ["RETIREMENT_DISABILITY", "SICKNESS"],
+    "maritalStatus": "WIDOWED",
+    "retirementPlan": "401(k)"
+  },
+  {
+    "type": "senior",
+    "firstName": "Grace",
+    "lastName": "Anderson",
+    "age": 78,
+    "gender": "FEMALE",
+    "insurances": ["RETIREMENT_DISABILITY"],
+    "maritalStatus": "MARRIED",
+    "spouseName": "John Anderson",
+    "retirementPlan": "Pension"
+  },
+  {
+    "type": "senior",
+    "firstName": "Robert",
+    "lastName": "Brown",
+    "age": 68,
+    "gender": "MALE",
+    "insurances": ["RETIREMENT_DISABILITY"],
+    "maritalStatus": "MARRIED",
+    "spouseName": "Mary Brown",
+    "retirementPlan": "IRA"
+  }
+]
