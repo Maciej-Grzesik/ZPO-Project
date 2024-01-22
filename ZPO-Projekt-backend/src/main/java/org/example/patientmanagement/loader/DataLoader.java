@@ -15,6 +15,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+
+/**
+ * Klasa `DataLoader` odpowiedzialna za ładowanie danych pacjentów z pliku JSON do bazy danych
+ */
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://zpo-project.s3-website.eu-north-1.amazonaws.com/",
@@ -24,6 +28,11 @@ import java.io.IOException;
 public class DataLoader implements CommandLineRunner {
     private final PatientRepository patientRepository;
 
+    /**
+     * Konstruktor klasy `DataLoader` z repozytorium pacjentów
+     *
+     * @param patientRepository Repozytorium pacjentów
+     */
     public DataLoader(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
     }
@@ -31,6 +40,13 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) { }
 
+    /**
+     * Obsługuje przesyłanie pliku JSON i dodaje pacjentów do bazy danych
+     *
+     * @param multipartFile Plik do przesłania
+     * @return ResponseEntity z komunikatem o wyniku operacji
+     * @throws IOException Występuje, gdy wystąpi błąd wejścia/wyjścia podczas przesyłania pliku
+     */
     @PostMapping("/upload")
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile multipartFile) throws IOException {
         File file = File.createTempFile("temp", null);
@@ -49,6 +65,11 @@ public class DataLoader implements CommandLineRunner {
         }
     }
 
+    /**
+     * Zapisuje pacjentów do bazy danych na podstawie przekazanej tablicy JSON
+     *
+     * @param patientArray Tablica JSON z danymi pacjentów
+     */
     public void savePatient(JSONArray patientArray) {
         for (int i = 0; i < patientArray.length(); i++) {
             JSONObject patientObj = patientArray.getJSONObject(i);
@@ -76,6 +97,11 @@ public class DataLoader implements CommandLineRunner {
         }
     }
 
+    /**
+     * Zapisuje pojedynczego pacjenta do bazy danych
+     *
+     * @param patient Pacjent do zapisania
+     */
     private void savePatient(Patient patient) {
         try {
             System.out.println(patient.toString());
@@ -85,6 +111,12 @@ public class DataLoader implements CommandLineRunner {
         }
     }
 
+    /**
+     * Tworzy obiekt pacjenta dorosłego na podstawie danych z obiektu JSON
+     *
+     * @param patientObj Obiekt JSON z danymi pacjenta dorosłego
+     * @return Obiekt pacjenta dorosłego
+     */
     private AdultPatientEntity createAdultPatient(JSONObject patientObj) {
         AdultPatientEntity adultPatientEntity = new AdultPatientEntity();
         fillCommonPatientFields(adultPatientEntity, patientObj);
@@ -98,6 +130,12 @@ public class DataLoader implements CommandLineRunner {
         return adultPatientEntity;
     }
 
+    /**
+     * Tworzy obiekt pacjenta dziecka na podstawie danych z obiektu JSON
+     *
+     * @param patientObj Obiekt JSON z danymi pacjenta dziecka
+     * @return Obiekt pacjenta dziecka
+     */
     private ChildPatientEntity createChildPatient(JSONObject patientObj) {
         ChildPatientEntity childPatientEntity = new ChildPatientEntity();
         fillCommonPatientFields(childPatientEntity, patientObj);
@@ -107,6 +145,12 @@ public class DataLoader implements CommandLineRunner {
         return childPatientEntity;
     }
 
+    /**
+     * Tworzy obiekt pacjenta seniora na podstawie danych z obiektu JSON
+     *
+     * @param patientObj Obiekt JSON z danymi pacjenta seniora
+     * @return Obiekt pacjenta seniora
+     */
     private SeniorPatientEntity createSeniorPatient(JSONObject patientObj) {
         SeniorPatientEntity seniorPatientEntity = new SeniorPatientEntity();
         fillCommonPatientFields(seniorPatientEntity, patientObj);
@@ -121,6 +165,12 @@ public class DataLoader implements CommandLineRunner {
         return seniorPatientEntity;
     }
 
+    /**
+     * Uzupełnia wspólne pola danych pacjenta na podstawie obiektu JSON
+     *
+     * @param patient    Obiekt pacjenta do uzupełnienia
+     * @param patientObj Obiekt JSON z danymi pacjenta
+     */
     private void fillCommonPatientFields(Patient patient, JSONObject patientObj) {
         patient.setFirstName(patientObj.optString("firstName", ""));
         patient.setSecondName(patientObj.optString("secondName", ""));

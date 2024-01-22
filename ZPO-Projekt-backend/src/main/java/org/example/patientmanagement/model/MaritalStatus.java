@@ -1,5 +1,8 @@
 package org.example.patientmanagement.model;
 
+/**
+ * Enum `MaritalStatus` reprezentujący stan cywilny pacjenta
+ */
 public enum MaritalStatus {
     SINGLE("Single"),
     MARRIED("Married"),
@@ -8,7 +11,21 @@ public enum MaritalStatus {
 
     private final String displayName;
 
-    MaritalStatus(String displayName) { this.displayName = displayName; }
+    /**
+     * Konstruktor enuma z przypisanym wyświetlanym tekstem dla danego stanu cywilnego
+     *
+     * @param displayName Tekst reprezentujący dany stan cywilny
+     */
+    MaritalStatus(String displayName) {
+        this.displayName = displayName;
+    }
 
-    public String getDisplayName() { return displayName; }
+    /**
+     * Zwraca tekst reprezentujący dany stan cywilny
+     *
+     * @return Tekst reprezentujący dany stan cywilny
+     */
+    public String getDisplayName() {
+        return displayName;
+    }
 }

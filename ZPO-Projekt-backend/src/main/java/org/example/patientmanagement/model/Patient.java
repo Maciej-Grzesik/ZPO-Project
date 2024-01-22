@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import javax.persistence.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Klasa abstrakcyjna `Patient` reprezentująca ogólne informacje o pacjencie
+ */
 @Entity
 @Table(name = "patients")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -19,6 +20,7 @@ import java.util.Set;
         @JsonSubTypes.Type(value = SeniorPatientEntity.class, name = "senior")
 })
 public abstract class Patient {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -57,7 +59,6 @@ public abstract class Patient {
         return lastName;
     }
 
-
     public int getAge() {
         return age;
     }
@@ -89,6 +90,7 @@ public abstract class Patient {
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -105,6 +107,11 @@ public abstract class Patient {
         this.gender = gender;
     }
 
+    /**
+     * Przedstawia informacje o pacjencie w formie tekstowej
+     *
+     * @return Tekstowa reprezentacja informacji o pacjencie
+     */
     @Override
     public String toString() {
         StringBuilder info = new StringBuilder();
@@ -121,4 +128,3 @@ public abstract class Patient {
         return info.toString();
     }
 }
-
